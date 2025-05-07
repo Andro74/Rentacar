@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent a Car Pretraživanje - Hrvatska</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <h1>Pretraživanje Rent a Car usluga u Hrvatskoj</h1>
+        <nav> 
+            <a href="index.html">Početna</a> 
+            <a href="Projekt_upit.html">Upit</a> 
+            <a href="UvjetiKoristenja.html">Uvijeti korištenja</a> 
+           </nav> 
+           
+    </header>
+    
+    <div class="container">
+        <div class="filters">
+            <div class="filter-group">
+                <h3>Lokacija</h3>
+                <select id="city-select">
+                    <option value="">Odaberi lokaciju</option>
+                    <optgroup label="Gradovi">
+                        <option value="zagreb">Zagreb</option>
+                        <option value="split">Split</option>
+                        <option value="rijeka">Rijeka</option>
+                        <option value="dubrovnik">Dubrovnik</option>
+                        <option value="zadar">Zadar</option>
+                        <option value="pula">Pula</option>
+                        <option value="osijek">Osijek</option>
+                        <option value="šibenik">Šibenik</option>
+                    </optgroup>
+                    <optgroup label="Otoci">
+                        <option value="krk">Krk</option>
+                        <option value="brač">Brač</option>
+                        <option value="hvar">Hvar</option>
+                        <option value="korčula">Korčula</option>
+                        <option value="pag">Pag</option>
+                        <option value="cres">Cres</option>
+                        <option value="lošinj">Lošinj</option>
+                        <option value="vis">Vis</option>
+                        <option value="rab">Rab</option>
+                    </optgroup>
+                </select>
+            </div>
+            
+            <button id="search-btn">Pretraži</button>
+        </div>
+        
+        <div id="map"></div>
+    </div>
+    
+    <div class="container results" id="results-container">
+        <h2>Rezultati pretrage</h2>
+        <div id="results-list"></div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="index.js"></script>
+    <footer>
+        &copy; 2025 Rent-a-Car Hrvatska. Sva prava pridržana.
+      </footer>
+    
+   
+</body>
+</html>
