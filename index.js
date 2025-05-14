@@ -1,6 +1,6 @@
 
 
-        // Inicijalizacija mape
+        // Inicijalizacija mape 555
         const map = L.map('map').setView([45.1, 15.2], 7);
         
         // Dodavanje
