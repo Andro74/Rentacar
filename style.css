@@ -1,16 +1,47 @@
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #005999;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    z-index: 1000;
-    margin: 0;
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #005999;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            z-index: 1000;
+            margin: 0;
+}
+        
+        header nav a {
+    color: #ffffff; /* Bijela boja teksta */
+    text-decoration: none; /* Uklanja podcrtanje */
+    margin-right: 1rem;
+    padding: 0.5rem;
+    font-weight: 500;
+    position: relative; /* Potrebno za apsolutno pozicioniranje pseudo-elementa */
 }
 
+header nav a:hover {
+    color: #5796d6; /* Boja pri hoveru */
+}
+
+/* Efekt podcrtavanja s lijeva na desno */
+header nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #5796d6; /* Boja podcrtavanja */
+    transition: width 0.3s ease; /* Animacija širine */
+}
+
+header nav a:hover::after {
+    width: 100%; /* Povećava širinu na hover */
+}
  
  body {
             font-family: 'Arial', sans-serif;
@@ -21,12 +52,15 @@ header {
             flex-direction: column-reverse;
             padding-top: 80px;
             padding-bottom: 80px;
+            z-index: 1;
         }
         .container {
-            display: flex;
-            max-width: 1200px;
-            margin: 20px auto;
-        }
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding-top: 20px; /* Dodajte malo prostora iznad */
+}
+        
         form {
             max-width: 500px; 
             margin: 20px auto;
@@ -68,7 +102,7 @@ input[type="number"]:focus{
     text-align: center;
     padding: 1rem;
     z-index: 1000;
-    margin: 0;
+    height: 60px; /* Fiksna visina footera */
           }
           main {
             max-width: 800px;
@@ -123,11 +157,12 @@ input[type="number"]:focus{
         }
         
         #map {
-            flex: 1;
-            height: 600px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+    flex: 1;
+    height: calc(100vh - 180px); /* Prilagodite visinu oduzimajući visinu headera i footera */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
         
         .results {
             margin-top: 20px;
@@ -151,19 +186,28 @@ input[type="number"]:focus{
             color: #0071c2;
             font-size: 1.2em;
         }
+        .leaflet-control-zoom {
+    position:relative;
+    right: 5px;
+    top: 50px; /* Visina vašeg headera + malo prostora */
+    z-index: 100;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-radius: 4px;
+    background: white;
+}
+        
         
         @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            
-            .filters {
-                width: auto;
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-            
-            #map {
-                height: 400px;
-            }
+    body {
+        padding-top: 100px; /* Povećajte ako se header poveća na mobilnim uređajima */
+    }
+    
+    #map {
+        height: calc(100vh - 220px); /* Prilagodite za mobilne uređaje */
+    }
+    
+    header, footer {
+        height: auto;
+        padding: 0.5rem;
+    }
         }
