@@ -91,7 +91,6 @@ input[type="number"]:focus{
         .filter-group {
             margin-bottom: 20px;
         }
-        
         .filter-group h3 {
             margin-top: 0;
             border-bottom: 1px solid #ddd;
@@ -120,7 +119,7 @@ input[type="number"]:focus{
         }
         
         button:hover {
-            background-color: #005999;
+            background-color: #005999; 
         }
         
         #map {
