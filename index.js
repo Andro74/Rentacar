@@ -1,5 +1,3 @@
-
-
         // Inicijalizacija mape 555
         const map = L.map('map').setView([45.1, 15.2], 7);
         
@@ -91,6 +89,7 @@
             ]
         };
         
+        
         // Markeri na karti
         const markers = {};
         
@@ -131,6 +130,37 @@
                 resultsContainer.style.display = 'block';
             }
         }
+        
+        // Funkcija za prikaz rezultata
+function showResults(location) {
+    const resultsContainer = document.getElementById('results-container');
+    const resultsList = document.getElementById('results-list');
+    
+    resultsList.innerHTML = '';
+    
+    if (rentalData[location]) {
+        rentalData[location].forEach(car => {
+            const carElement = document.createElement('div');
+            carElement.className = 'car-listing';
+            carElement.innerHTML = `
+                <h3>${car.name}</h3>
+                <p><strong>Lokacija:</strong> ${car.address}</p>
+                <p class="price">Cijena: ${car.price}</p>
+                <button>Rezerviraj sada</button>
+            `;
+            resultsList.appendChild(carElement);
+        });
+        
+        resultsContainer.style.display = 'block';
+        // Dodajte ovu liniju za automatsko pomicanje do rezultata
+        resultsContainer.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        resultsList.innerHTML = '<p>Nema dostupnih rent a car usluga za odabranu lokaciju.</p>';
+        resultsContainer.style.display = 'block';
+        // Dodajte ovu liniju i ovdje za slučaj da nema rezultata
+        resultsContainer.scrollIntoView({ behavior: 'smooth' });
+    }
+}
         
         // Event listener za gumb pretraži
         document.getElementById('search-btn').addEventListener('click', function() {
