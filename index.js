@@ -146,7 +146,7 @@ function showResults(location) {
                 <h3>${car.name}</h3>
                 <p><strong>Lokacija:</strong> ${car.address}</p>
                 <p class="price">Cijena: ${car.price}</p>
-                <button>Rezerviraj sada</button>
+               
             `;
             resultsList.appendChild(carElement);
         });
